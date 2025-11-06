@@ -1,24 +1,20 @@
+import openrouteservice
 import csv
 import os
-
-import openrouteservice
 from dotenv import load_dotenv
 
 
 def geocode_areas(api_key, input_file, output_file):
     """
-    Geocodes a list of areas from a CSV file specifically in Sharjah, UAE
-    and saves the results to a new CSV file.
+    Geocodes areas using a simple two-pass approach with NO restrictions:
+    1. Try with "Sharjah, UAE" added
+    2. Try with just the area name
 
     :param api_key: Your openrouteservice API key.
     :param input_file: The path to the input CSV file.
     :param output_file: The path to the output CSV file.
     """
     client = openrouteservice.Client(key=api_key)
-
-    # UAE bounding box to restrict search results
-    # Format: [min_lng, min_lat, max_lng, max_lat]
-    uae_bbox = [51.5, 22.0, 56.5, 26.5]  # Covers all UAE
 
     successful = 0
     not_found = 0
@@ -29,7 +25,12 @@ def geocode_areas(api_key, input_file, output_file):
         open(output_file, "w", newline="", encoding="utf-8") as outfile,
     ):
         reader = csv.DictReader(infile)
-        fieldnames = reader.fieldnames + ["latitude", "longitude", "geocode_status"]
+        fieldnames = reader.fieldnames + [
+            "latitude",
+            "longitude",
+            "matched_name",
+            "search_method",
+        ]
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -39,74 +40,63 @@ def geocode_areas(api_key, input_file, output_file):
             if not area:
                 row["latitude"] = "Not found"
                 row["longitude"] = "Not found"
-                row["geocode_status"] = "Empty area name"
+                row["matched_name"] = "Empty area name"
+                row["search_method"] = "N/A"
                 writer.writerow(row)
                 continue
 
+            found = False
+
             try:
-                # Add "Sharjah, UAE" to the search query for better accuracy
+                # PASS 1: Try with "Sharjah, UAE" for context
                 search_query = f"{area}, Sharjah, UAE"
+                print(f"Searching: {search_query}")
 
-                print(f"Searching for: {search_query}")
-
-                # Geocode with boundary box to restrict to UAE region
-                geocode_result = client.pelias_search(
-                    text=search_query,
-                    boundary_rect={
-                        "min_lon": uae_bbox[0],
-                        "min_lat": uae_bbox[1],
-                        "max_lon": uae_bbox[2],
-                        "max_lat": uae_bbox[3],
-                    },
-                )
+                geocode_result = client.pelias_search(text=search_query)
 
                 if geocode_result and geocode_result["features"]:
-                    # Get the first result
                     feature = geocode_result["features"][0]
                     coords = feature["geometry"]["coordinates"]
 
-                    # Verify coordinates are within UAE
-                    lng, lat = coords[0], coords[1]
-                    if (
-                        uae_bbox[0] <= lng <= uae_bbox[2]
-                        and uae_bbox[1] <= lat <= uae_bbox[3]
-                    ):
-                        row["latitude"] = lat
-                        row["longitude"] = lng
-                        row["geocode_status"] = "Success"
-                        successful += 1
+                    row["latitude"] = coords[1]
+                    row["longitude"] = coords[0]
+                    row["matched_name"] = feature["properties"].get("label", "N/A")
+                    row["search_method"] = "With Sharjah context"
+                    successful += 1
+                    found = True
+                    print(f"  ✓ Found: {row['matched_name']}")
 
-                        # Print location name for verification
-                        location_name = feature.get("properties", {}).get(
-                            "label", "Unknown"
-                        )
-                        print(f"  ✓ Found: {location_name} ({lat:.6f}, {lng:.6f})")
-                    else:
-                        # Coordinates outside UAE
-                        row["latitude"] = "Not found"
-                        row["longitude"] = "Not found"
-                        row["geocode_status"] = "Outside UAE bounds"
-                        not_found += 1
-                        print(f"  ✗ Result outside UAE: ({lat:.6f}, {lng:.6f})")
-                else:
+                # PASS 2: If not found, try with just the area name
+                if not found:
+                    print(f"  Trying without context: {area}")
+                    geocode_result = client.pelias_search(text=area)
+
+                    if geocode_result and geocode_result["features"]:
+                        feature = geocode_result["features"][0]
+                        coords = feature["geometry"]["coordinates"]
+
+                        row["latitude"] = coords[1]
+                        row["longitude"] = coords[0]
+                        row["matched_name"] = feature["properties"].get("label", "N/A")
+                        row["search_method"] = "Without context"
+                        successful += 1
+                        found = True
+                        print(f"  ✓ Found: {row['matched_name']}")
+
+                if not found:
                     row["latitude"] = "Not found"
                     row["longitude"] = "Not found"
-                    row["geocode_status"] = "No results"
+                    row["matched_name"] = "No match"
+                    row["search_method"] = "Failed"
                     not_found += 1
-                    print("  ✗ No results found")
-
-            except openrouteservice.exceptions.ApiError as e:
-                print(f"  ✗ API error for '{area}': {e}")
-                row["latitude"] = "Error"
-                row["longitude"] = "Error"
-                row["geocode_status"] = f"API Error: {str(e)}"
-                errors += 1
+                    print(f"  ✗ Not found")
 
             except Exception as e:
-                print(f"  ✗ Unexpected error for '{area}': {e}")
+                print(f"  ✗ Error: {e}")
                 row["latitude"] = "Error"
                 row["longitude"] = "Error"
-                row["geocode_status"] = f"Error: {str(e)}"
+                row["matched_name"] = str(e)
+                row["search_method"] = "Error"
                 errors += 1
 
             writer.writerow(row)
@@ -124,7 +114,7 @@ def geocode_areas(api_key, input_file, output_file):
 
 if __name__ == "__main__":
     load_dotenv()
-    API_KEY = os.getenv("API_KEY")
+    API_KEY = os.getenv("ORS_API_KEY")
 
     if not API_KEY:
         raise ValueError("ORS_API_KEY not found in .env file or environment variables.")
@@ -132,9 +122,8 @@ if __name__ == "__main__":
     INPUT_CSV = "./Sharjah_Areas_and_Neighbourhoods.csv"
     OUTPUT_CSV = "./sharjah_areas_with_coords.csv"
 
-    print(f"Starting geocoding for areas in {INPUT_CSV}")
-    print(f"Results will be saved to {OUTPUT_CSV}\n")
+    print(f"Starting geocoding for {INPUT_CSV}\n")
 
     geocode_areas(API_KEY, INPUT_CSV, OUTPUT_CSV)
 
-    print(f"\n✓ Geocoding complete. Results saved to '{OUTPUT_CSV}'")
+    print(f"\n✓ Complete! Results saved to '{OUTPUT_CSV}'")
