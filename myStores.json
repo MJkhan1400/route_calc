@@ -1,0 +1,66 @@
+{
+  "shop1": {
+    "name": "Rolla",
+    "address": "locations.location2.address",
+    "emirate": "locations.location2.emirate",
+    "phone": "+971 6 562 0126",
+    "whatsapp": "971655620126",
+    "hours": "locations.location2.hours",
+    "deliveryRadius": 10,
+    "socialLinks": [
+      {
+        "platform": "whatsapp",
+        "url": "https://wa.me/971655620126",
+        "label": "locations.location2.socialLinks.whatsapp"
+      },
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/cfcrolla/",
+        "label": "locations.location2.socialLinks.instagram"
+      },
+      {
+        "platform": "facebook",
+        "url": "https://www.facebook.com/cfcrolla/",
+        "label": "locations.location2.socialLinks.facebook"
+      }
+    ],
+    "mapUrl": "https://maps.app.goo.gl/QhJzahj3rZcsuKb9A",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1802.6382998374245!2d55.39319258465893!3d25.362044729741367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a2fb0a3c5e3%3A0xc3b0016c86823945!2sChicago%20Fried%20chicken!5e0!3m2!1sen!2sae!4v1758130473482!5m2!1sen!2sae",
+    "coordinates": {
+      "lat": 25.3615406,
+      "lng": 55.3932355
+    }
+  },
+  "shop2": {
+    "name": "Muwaileh",
+    "address": "locations.location1.address",
+    "emirate": "locations.location1.emirate",
+    "phone": "+971 6 523 0090",
+    "whatsapp": "9715230090",
+    "hours": "locations.location1.hours",
+    "deliveryRadius": 10,
+    "socialLinks": [
+      {
+        "platform": "whatsapp",
+        "url": "https://wa.me/9715230090",
+        "label": "locations.location1.socialLinks.whatsapp"
+      },
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/cfcmuwaileh/",
+        "label": "locations.location1.socialLinks.instagram"
+      },
+      {
+        "platform": "facebook",
+        "url": "https://www.facebook.com/cfcmuwaileh/",
+        "label": "locations.location1.socialLinks.facebook"
+      }
+    ],
+    "mapUrl": "https://maps.app.goo.gl/YUyFqvyxtpgW8D9H6",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.9305569766466!2d55.46584579999999!3d25.3065371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5fffbb2ec0a7%3A0xce5085fb0813b379!2sChicago%20Restaurant!5e0!3m2!1sen!2sae!4v1758104350379!5m2!1sen!2sae",
+    "coordinates": {
+      "lat": 25.3065371,
+      "lng": 55.4658458
+    }
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "shop1": {
+    "name": "Rolla",
+    "areas": [
+      {
+        "name": "Al Qasimia",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 2.42
+      },
+      {
+        "name": "Al Nud",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 3.18
+      },
+      {
+        "name": "Abu Shagara",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 3.62
+      },
+      {
+        "name": "Al Manakh",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 1.99
+      },
+      {
+        "name": "Al Mareija",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 2.03
+      },
+      {
+        "name": "Al Mahatta",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 3.13
+      },
+      {
+        "name": "Al Nabba",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 1.01
+      },
+      {
+        "name": "Bu Tina",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 3.44
+      },
+      {
+        "name": "Al Qulai'aah",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 8.52
+      },
+      {
+        "name": "Al Mujarrah",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 1.14
+      },
+      {
+        "name": "Al Soor",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 3.18
+      },
+      {
+        "name": "Al Musalla",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 0.56
+      },
+      {
+        "name": "Al Nasserya",
+        "region": "Central Sharjah (City Centre)",
+        "distance_km": 2.48
+      },
+      {
+        "name": "Al Majaz 1",
+        "region": "Coastal Areas",
+        "distance_km": 5.8
+      },
+      {
+        "name": "Al Majaz 2",
+        "region": "Coastal Areas",
+        "distance_km": 5.8
+      },
+      {
+        "name": "Al Majaz 3",
+        "region": "Coastal Areas",
+        "distance_km": 5.8
+      },
+      {
+        "name": "Al Khan",
+        "region": "Coastal Areas",
+        "distance_km": 5.49
+      },
+      {
+        "name": "Al Taawun",
+        "region": "Coastal Areas",
+        "distance_km": 6.79
+      },
+      {
+        "name": "Al Nahda",
+        "region": "Coastal Areas",
+        "distance_km": 12.55
+      },
+      {
+        "name": "Al Layyah",
+        "region": "Coastal Areas",
+        "distance_km": 3.73
+      },
+      {
+        "name": "Al Mamzar",
+        "region": "Coastal Areas",
+        "distance_km": 13.41
+      },
+      {
+        "name": "Buhaira Corniche",
+        "region": "Coastal Areas",
+        "distance_km": 5.84
+      },
+      {
+        "name": "Al Fisht",
+        "region": "Coastal Areas",
+        "distance_km": 3.22
+      },
+      {
+        "name": "Al Heera",
+        "region": "Coastal Areas",
+        "distance_km": 5.54
+      },
+      {
+        "name": "Al Rifah",
+        "region": "Coastal Areas",
+        "distance_km": 5.65
+      },
+      {
+        "name": "Al Falaj",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 29.25
+      },
+      {
+        "name": "Al Ghubaiba",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 3.57
+      },
+      {
+        "name": "Al Jazzat",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 4.55
+      },
+      {
+        "name": "Al Ramla",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 25.68
+      },
+      {
+        "name": "Al Yarmook",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 1.93
+      },
+      {
+        "name": "Al Abar",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 4.59
+      },
+      {
+        "name": "Al Ramtha",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 8.94
+      },
+      {
+        "name": "Al Azra",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 7.51
+      },
+      {
+        "name": "Al Sabkha",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 17.47
+      },
+      {
+        "name": "Al Riqa Suburb",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 7.8
+      },
+      {
+        "name": "Industrial Area 1",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 2",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 3",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 4",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 5",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 6",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 7",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 8",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 9",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 10",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 11",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 12",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 13",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 14",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 15",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 16",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Industrial Area 18",
+        "region": "Industrial Areas",
+        "distance_km": 7.08
+      },
+      {
+        "name": "Kalba",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 9.83
+      },
+      {
+        "name": "Dibba Al Hisn",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 1.08
+      },
+      {
+        "name": "Al Madam",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 15.55
+      },
+      {
+        "name": "Wadi Al Helo",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 17.64
+      },
+      {
+        "name": "Al Dhaid",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 4.3
+      }
+    ]
+  },
+  "shop2": {
+    "name": "Muwaileh",
+    "areas": [
+      {
+        "name": "Al Khazamiya",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 6.69
+      },
+      {
+        "name": "Samnan",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 5.54
+      },
+      {
+        "name": "Al Talaa",
+        "region": "Suburban & Residential Districts",
+        "distance_km": 5.86
+      },
+      {
+        "name": "Al Zahia",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 2.93
+      },
+      {
+        "name": "Aljada",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 2.99
+      },
+      {
+        "name": "Tilal City",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 2.75
+      },
+      {
+        "name": "Al Rahmaniya",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 16.03
+      },
+      {
+        "name": "Muwaileh Commercial",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 1.61
+      },
+      {
+        "name": "University City",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 1.75
+      },
+      {
+        "name": "Al Mamsha",
+        "region": "New Developments & Modern Communities",
+        "distance_km": 1.53
+      },
+      {
+        "name": "Industrial Area 17",
+        "region": "Industrial Areas",
+        "distance_km": 4.68
+      },
+      {
+        "name": "Khor Fakkan",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 21.82
+      },
+      {
+        "name": "Al Maleha",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 8.51
+      },
+      {
+        "name": "Al Bataeh",
+        "region": "Eastern Region (Wider Emirate)",
+        "distance_km": 31.85
+      }
+    ]
+  }
+}
